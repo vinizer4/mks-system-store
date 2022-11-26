@@ -1,24 +1,21 @@
 {
-  "name": "mks-system-store",
+  "name": "mks-sysyem-store-npm",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
   },
   "dependencies": {
-    "@types/node": "18.11.9",
-    "@types/react-dom": "18.0.9",
-    "babel-plugin-styled-components": "^2.0.7",
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.5",
-    "next": "13.0.5",
+    "@reduxjs/toolkit": "^1.8.5",
+    "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.6.0",
-    "react-redux": "^8.0.5",
+    "react-icons": "^4.4.0",
+    "react-redux": "^8.0.2",
     "react-toastify": "^9.1.1",
     "redux": "^4.2.0",
     "styled-components": "^5.3.5"
