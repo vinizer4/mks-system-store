@@ -1,10 +1,12 @@
 import React from 'react'
 
-import { numberToPrice } from '../../helpers/priceFormat';
+import { numberToPrice } from '../../utils/priceFormat';
+import { FcPaid, FcShipped } from "react-icons/fc";
 import { useCart } from '../../hooks/cart';
 import { useAppSelector } from '../../hooks/store';
 import If from '../If';
 import ProductCart from '../ProductCart';
+import { toast } from 'react-toastify';
 
 import {
   Container,
@@ -15,6 +17,7 @@ import {
   Footer,
 } from './styles'
 
+
 const SidebarCart = () => {
   const { cartIsOpen, toggleSidebarCart } = useCart()
   const products = useAppSelector(state => state.products)
@@ -22,6 +25,20 @@ const SidebarCart = () => {
   const subtotal = products.reduce((acc, product) => {
     return Number(product.price) * Number(product.amount) + acc
   }, 0)
+
+  function checkout() {
+    toast.success("Compra Finalizada", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      icon: FcShipped,
+      theme: 'dark',
+    });
+  }
 
   return (
     <Container isOpen={cartIsOpen}>
@@ -52,6 +69,7 @@ const SidebarCart = () => {
         </Total>
 
         <SubmitButton
+          onClick={checkout}
           disabled={products.length === 0}
         >Finalizar Compra</SubmitButton>
       </Footer>

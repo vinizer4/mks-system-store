@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image';
 
-import { numberToPrice } from '../../helpers/priceFormat';
+import { numberToPrice } from '../../utils/priceFormat';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { decrementProductAmount, incrementProductAmount, removeProduct } from '../../store/product.store';
 
@@ -17,12 +17,12 @@ type Props = {
   product: any;
 }
 
-const ProductCart = ({
+const Product = ({
   product
 }: Props) => {
   const products = useAppSelector(state => state.products)
   const dispatch = useAppDispatch()
-  const [ amount, setAmount] = useState(1)
+  const [amount, setAmount] = useState(1)
 
   useEffect(() => {
     setAmount(products.find(p => p.id === product.id)?.amount || 1)
@@ -91,4 +91,4 @@ const ProductCart = ({
   )
 }
 
-export default ProductCart
+export default Product

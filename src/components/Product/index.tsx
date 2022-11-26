@@ -3,7 +3,7 @@ import React from 'react'
 import { BiArchive } from 'react-icons/bi'
 import { toast } from 'react-toastify'
 
-import { numberToPrice } from '../../helpers/priceFormat';
+import { numberToPrice } from '../../utils/priceFormat';
 import { useAppDispatch } from '../../hooks/store';
 import { IProduct } from '../../interfaces/IProduct';
 import { addProduct } from '../../store/product.store';
@@ -15,6 +15,7 @@ import {
   Title,
   Price,
 } from './styles'
+import { FcPaid } from 'react-icons/fc';
 
 type Props = {
   product: IProduct;
@@ -35,6 +36,8 @@ const ProductCard = ({
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
+      icon: FcPaid,
+      theme: 'dark'
     });
   }
 

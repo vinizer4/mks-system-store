@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import If from '../components/If';
 
-import ProductCard from '../components/ProductCard';
+import Product from '../components/Product';
 import ProductListSkeleton from '../components/Skeletons/ProductListSkeleton';
 import { IProduct } from '../interfaces/IProduct';
 import { GlobalStyle } from '../styles/global'
@@ -40,7 +40,7 @@ const Home: NextPage<Props> = ({ data }) => {
         </If>
         {
           data?.products.map((product: IProduct) => (
-            <ProductCard key={product.id} product={product} />
+            <Product key={product.id} product={product} />
           ))
         }
       </Main>
